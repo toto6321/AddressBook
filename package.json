@@ -1,0 +1,20 @@
+{
+  "name": "addressbookdemo",
+  "version": "1.0.0",
+  "description": "a REST demo with koa, mysql and mongodb",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://toto6321@bitbucket.org/toto6321/addressbookdemo.git"
+  },
+  "author": "toto",
+  "license": "MIT",
+  "homepage": "https://bitbucket.org/toto6321/addressbookdemo#readme",
+  "dependencies": {
+    "koa": "^2.4.1",
+    "koa-router": "^7.3.0"
+  }
+}
