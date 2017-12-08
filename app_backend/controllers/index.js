@@ -4,4 +4,10 @@
  *   @email  toto6321@qq.com
  */
 
+module.exports.index = async ctx => {
+	"use strict";
+	ctx.body = {
+		msg: 'get /'
+	}
+};
 

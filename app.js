@@ -9,4 +9,10 @@ const router = require('./app_backend/routers/index');
 
 let app = new Koa();
 
-app.use(router);
+app.use(router.routes());
+
+
+const port = process.env.PORT || 3002;
+app.listen(port, () => {
+	console.log(`server is listening on ${port}`)
+});
