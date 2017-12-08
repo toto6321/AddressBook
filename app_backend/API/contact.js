@@ -4,11 +4,11 @@
  *   @email  toto6321@qq.com
  */
 
-const Router = require('koa-router');
-const router = new Router();
+const Router = require('koa-router')
+const router = new Router()
 router.get('/', async ctx => {
-	"use strict";
-	ctx.body = {
-		msg: 'get /'
-	}
+  'use strict'
+  ctx.body = {
+    msg: 'get /'
+  }
 })

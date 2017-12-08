@@ -5,9 +5,8 @@
  */
 
 module.exports.index = async ctx => {
-	"use strict";
-	ctx.body = {
-		msg: 'get /'
-	}
-};
-
+  'use strict'
+  ctx.body = {
+    msg: 'get /'
+  }
+}

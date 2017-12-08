@@ -4,16 +4,16 @@
  *   @email  toto6321@qq.com
  */
 
-'user strict';
-const Router = require('koa-router');
-const indexController = require('../controllers/index');
-const router = new Router();
+'user strict'
+const Router = require('koa-router')
+const indexController = require('../controllers/index')
+const router = new Router()
 
 router.get('/', async ctx => {
-	"use strict";
-	ctx.body = {
-		msg: 'get /'
-	}
-});
+  'use strict'
+  ctx.body = {
+    msg: 'get /'
+  }
+})
 
-module.exports = router;
+module.exports = router
