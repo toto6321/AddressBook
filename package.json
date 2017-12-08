@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon app.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha ./test/*/*.test.js",
     "eslint-init": "eslint --init",
     "eslint": "eslint **/*.js",
     "eslint-html": "eslint **/*.js -f html -o ./reports/eslint-result.html",
@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
     "eslint": "^4.12.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-config-google": "^0.9.1",
