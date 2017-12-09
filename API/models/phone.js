@@ -7,7 +7,7 @@ const mongoose = require('mongoose')
 
 const phoneSchema = new mongoose.Schema({
   code: Number,
-  number: {type: String, required}
+  number: {type: String, required: true}
 })
 
 module.exports = mongoose.model('Phone', phoneSchema)

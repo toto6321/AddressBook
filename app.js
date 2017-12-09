@@ -19,6 +19,17 @@ app.use(apiRouter.routes())
 // import database (mongodb for contact) configuration
 require('./app_backend/config/db')
 
+// for ejs middleware
+const ejs = require('koa-ejs')
+const path = require('path')
+ejs(app, {
+  root: path.join(__dirname, 'app_frontend', 'view'),
+  layout: 'template',
+  viewExt: 'html',
+  cache: false,
+  debug: false
+})
+
 const port = process.env.PORT || 3002
 const server = app.listen(port, () => {
   console.log(`server is listening on ${port}`)
