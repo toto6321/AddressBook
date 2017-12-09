@@ -5,11 +5,19 @@
  */
 'use strict'
 const Koa = require('koa')
-const router = require('./app_backend/routers/index')
-
 let app = new Koa()
 
+const koaBodyParser = require('koa-bodyparser')
+app.use(koaBodyParser())
+
+const router = require('./app_backend/routes/index')
+const apiRouter = require('./API/routes/routes')
+
 app.use(router.routes())
+app.use(apiRouter.routes())
+
+// import database (mongodb for contact) configuration
+require('./app_backend/config/db')
 
 const port = process.env.PORT || 3002
 const server = app.listen(port, () => {

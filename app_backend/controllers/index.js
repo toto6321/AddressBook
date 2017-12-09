@@ -7,6 +7,6 @@
 module.exports.index = async ctx => {
   'use strict'
   ctx.body = {
-    msg: 'get /'
+    msg: 'get / from controller'
   }
 }

@@ -9,11 +9,7 @@ const Router = require('koa-router')
 const indexController = require('../controllers/index')
 const router = new Router()
 
-router.get('/', async ctx => {
-  'use strict'
-  ctx.body = {
-    msg: 'get /'
-  }
-})
+// index.html
+router.get('/', indexController.index)
 
 module.exports = router
