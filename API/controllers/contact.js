@@ -23,6 +23,21 @@ module.exports.readAll = async ctt => {
   }
 }
 
+module.exports.readOne = async ctt => {
+  'use strict'
+  let {cid} = ctt.params
+  // TODO ObjectId filter
+  try {
+    const result = await Contact1.findOneById(cid)
+    if (result) {
+      ctt.status = 200
+      ctt.body = result
+    }
+  } catch (e) {
+    ctt.throw(400, e)
+  }
+}
+
 module.exports.createOne = async ctt => {
   'use strict'
   let {name, phone, address} = ctt.request.body
