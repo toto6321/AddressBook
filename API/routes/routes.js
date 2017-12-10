@@ -16,9 +16,9 @@ apiRouter.put('/api/contact/:cid', contactController.updateOne)
 apiRouter.delete('/api/contact/:cid', contactController.deleteOne)
 
 apiRouter.get('/api/users', userController.readAll)
-apiRouter.get('/api/user/:cid', userController.readOne)
+apiRouter.get('/api/user/:uid', userController.readOne)
 apiRouter.post('/api/user', userController.createOne)
-apiRouter.put('/api/user/:cid', userController.updateOne)
-apiRouter.delete('/api/user/:cid', userController.deleteOne)
+apiRouter.put('/api/user/:uid', userController.updateOne)
+apiRouter.delete('/api/user/:uid', userController.deleteOne)
 
 module.exports = apiRouter
