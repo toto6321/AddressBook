@@ -4,17 +4,12 @@
  *   @email  toto6321@qq.com
  */
 
+const query = require('./user_query')
+
 module.exports.readAll = async ctt => {
   'use strict'
   try {
-    const data = await [
-      {
-        id: 1,
-        name: 'toto',
-        email: 'toto6321@qq.com',
-        pwd: 'xxxxxx'
-      }
-    ]
+    const data = await query.getAll()
     if (data) {
       ctt.status = 200
       ctt.body = data
@@ -32,8 +27,9 @@ module.exports.readAll = async ctt => {
 
 module.exports.readOne = async ctt => {
   'use strict'
+  const {uid} = ctt.params
   try {
-    const data = await {api: 'read one'}
+    const data = await query.getOne(uid)
     if (data) {
       ctt.status = 200
       ctt.body = data
@@ -51,8 +47,18 @@ module.exports.readOne = async ctt => {
 
 module.exports.createOne = async ctt => {
   'use strict'
+  let {name, gender, email, mobile, pwd} = ctt.request.body
+  // todo data filter and format
+  const newUser = {
+    name: name,
+    gender: gender,
+    email: email,
+    mobile: mobile,
+    pwd: pwd
+  }
+  console.log('newUser:', newUser)
   try {
-    const data = await {api: 'create one'}
+    const data = await query.insertOne(newUser)
     if (data) {
       ctt.status = 200
       ctt.body = data
@@ -70,8 +76,19 @@ module.exports.createOne = async ctt => {
 
 module.exports.updateOne = async ctt => {
   'use strict'
+  let {uid} = ctt.params
+  let {name, gender, email, mobile, pwd} = ctt.request.body
+  // todo data filter and format
+  const newUser = {
+    name: name,
+    gender: gender,
+    email: email,
+    mobile: mobile,
+    pwd: pwd
+  }
+  console.log('updateUser:', newUser)
   try {
-    const data = await {api: 'update one'}
+    const data = await query.updateOne(uid, newUser)
     if (data) {
       ctt.status = 200
       ctt.body = data
@@ -89,8 +106,9 @@ module.exports.updateOne = async ctt => {
 
 module.exports.deleteOne = async ctt => {
   'use strict'
+  let {uid} = ctt.params
   try {
-    const data = await {api: 'delete one'}
+    const data = await query.deleteOne(uid)
     if (data) {
       ctt.status = 200
       ctt.body = data
