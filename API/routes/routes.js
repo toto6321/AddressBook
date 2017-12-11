@@ -21,4 +21,5 @@ apiRouter.post('/api/v1/user', userController.createOne)
 apiRouter.put('/api/v1/user/:uid', userController.updateOne)
 apiRouter.delete('/api/v1/user/:uid', userController.deleteOne)
 
+apiRouter.post('/api/v1/user/login', userController.login)
 module.exports = apiRouter

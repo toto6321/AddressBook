@@ -42,10 +42,25 @@ const deleteOne = (uid) => {
     .returning('*')
 }
 
+const checkLogin = (emailOrMobile, pwd) => {
+  'use strict'
+  // two ways to check:
+  // one is to get pwd according the email or mobile and compare with parameter pwd here,
+  // the other is to query if such a user exists in the database that has matched email/phone and pwd
+  // here we apply the second one
+  const id = knex('users')
+    .select('id', 'name', 'mobile', 'pwd')
+    .where({'email': emailOrMobile, 'pwd': pwd})
+    .orWhere({'mobile': emailOrMobile, 'pwd': pwd})
+  console.log('id', id)
+  return id
+}
+
 module.exports = {
   getAll,
   getOne,
   insertOne,
   updateOne,
-  deleteOne
+  deleteOne,
+  checkLogin
 }

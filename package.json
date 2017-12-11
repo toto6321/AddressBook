@@ -11,11 +11,10 @@
     "eslint-html": "eslint **/*.js -f html -o ./reports/eslint-result.html",
     "eslint-fix": "eslint --fix **/*.js",
     "knex-init": "knex init",
-    "knex-migrate-user":"knex migrate:make users",
-    "knex-migrate-env":"knex migrate:latest --env development",
-    "knex-seed-user":"knex seed:make users_seed",
-    "knex-seed-run":"knex seed:run --env development"
-
+    "knex-migrate-user": "knex migrate:make users",
+    "knex-migrate-env": "knex migrate:latest --env development",
+    "knex-seed-user": "knex seed:make users_seed",
+    "knex-seed-run": "knex seed:run --env development"
   },
   "repository": {
     "type": "git",
@@ -25,6 +24,7 @@
   "license": "MIT",
   "homepage": "https://bitbucket.org/toto6321/addressbookdemo#readme",
   "dependencies": {
+    "axios": "^0.17.1",
     "ejs": "^2.5.7",
     "knex": "^0.14.2",
     "koa": "^2.4.1",

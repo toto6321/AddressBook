@@ -123,3 +123,20 @@ module.exports.deleteOne = async ctt => {
     ctt.throw(400, e)
   }
 }
+
+module.exports.login = async ctt => {
+  'use strict'
+  const {emailOrMobile, pwd} = ctt.request.body
+  try {
+    const result = await query.checkLogin(emailOrMobile, pwd)
+    ctt.status = 200
+    if (result && result.length > 0) {
+      const uid = result.id
+      ctt.redirect('/app/:uid/home')
+    } else {
+      ctt.redirect('/app/login')// email or mobile doesn't match the pwd
+    }
+  } catch (e) {
+    ctt.throw(400, e)
+  }
+}
