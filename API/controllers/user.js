@@ -132,7 +132,7 @@ module.exports.login = async ctt => {
     ctt.status = 200
     if (result && result.length > 0) {
       const uid = result.id
-      ctt.redirect('/app/:uid/home')
+      ctt.redirect(`/app/${uid}/home`)
     } else {
       ctt.redirect('/app/login')// email or mobile doesn't match the pwd
     }

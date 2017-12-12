@@ -32,7 +32,7 @@ mongoose.connection.on('disconnected', connection_disconnected)
 // signal listener
 // for windows
 const readline = require('readline')
-if (process.platform == 'win32') {
+if (process.platform === 'win32') {
   const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
