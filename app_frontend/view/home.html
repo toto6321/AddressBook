@@ -1,12 +1,20 @@
 <p>
-    dear, <%= name %>
+    dear, <%= user.name %>
 </p>
 <hr>
 <ul>
     <li>
-        <span>name:</span><span><%= email %></span>
+        <span>name:</span><span><%= user.name %></span>
     </li>
     <li>
-        <span>gender:</span><span><%= gender===0?'female':'male' %></span>
+        <span>gender:</span><span><%= user.gender===0?'female':'male' %></span>
+    </li>
+    <li>
+        <span>email:</span><span><%= user.email %></span>
+    </li>
+    <li>
+        <span>mobile:</span><span><%= user.mobile %></span>
     </li>
 </ul>
+<hr>
+<% include contact-lists.html %>
