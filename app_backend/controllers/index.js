@@ -100,7 +100,7 @@ module.exports.getHome = async ctt => {
   'use strict'
   const {uid} = ctt.params
   const url = reqOption.url + `/user/${uid}`
-  console.log(reqOption.url)
+  console.log(url)
   try {
     const userRes = await axios.get(url)
     const contactRes = await axios.get(reqOption.url + `/${uid}/contacts`)
@@ -117,9 +117,15 @@ module.exports.getHome = async ctt => {
       // await ctt.render('contact-lists', {contacts: contacts})
     } else {
       ctt.status = 400
+      ctt.body = {
+        msg: 'failed to get user and contact'
+      }
     }
   } catch (e) {
-    ctt.throw(400, e)
+    ctt.status = 500
+    ctt.body = {
+      msg: 'axios'
+    }
   }
 // ctt.redirect('/app/login', res)
 }
@@ -127,4 +133,38 @@ module.exports.getHome = async ctt => {
 module.exports.logout = async ctt => {
   'use strict'
   ctt.redirect('/app/index')
+}
+
+module.exports.getAddContact = async ctt => {
+  'use strict'
+  try {
+    await ctt.render('addContact')
+  } catch (e) {
+    ctt.throw(400, e)
+  }
+}
+
+module.exports.addContact = async ctt => {
+  'use strict'
+  let {uid, name, phone, address} = ctt.request.body
+  // const uid = ctt.params.uid
+  try {
+    const contact = {
+      name: name,
+      phone: phone,
+      address: address,
+      uid: parseInt(uid)
+    }
+    console.log('contact', contact)
+    const res = await axios.post(reqOption.url + '/contact', contact)
+    console.log('status', res.status)
+    if (res.status == 200) {
+      ctt.redirect(`/app/${uid}/home`)
+    } else {
+      ctt.status = 500
+      ctt.body = {code: 1, msg: 'failed to add a contact'}
+    }
+  } catch (e) {
+    throw ctt
+  }
 }

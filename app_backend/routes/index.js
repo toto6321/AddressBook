@@ -21,4 +21,7 @@ router.post('/app/login', indexController.login)
 router.post('/app/signup', indexController.signup)
 router.get('/app/logout', indexController.logout)
 
+// add contact
+router.get('/app/addContact', indexController.getAddContact)
+router.post('/app/addContact', indexController.addContact)
 module.exports = router

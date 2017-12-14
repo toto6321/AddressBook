@@ -1,7 +1,18 @@
-<ul>
+<table>
+    <% if(contacts.length>0){ %>
+    <tr>
+        <th>name</th>
+        <th>phone</th>
+        <th>address</th>
+    </tr>
     <% contacts.forEach((contact)=> { %>
-    <li style="text-decoration:none"> <%= contact.name %></li>
-    <li style="text-decoration:none"> <%= contact.phone %></li>
-    <li style="text-decoration:none"> <%= contact.address %></li>
-    <% }) %>
-</ul>
+    <tr>
+        <td> <%= contact.name %></td>
+        <td> <%= contact.phone %></td>
+        <td> <%= contact.address %></td>
+    </tr>
+    <% })} %>
+
+</table>
+<hr>
+<a href="/app/addContact">Add a contact</a>

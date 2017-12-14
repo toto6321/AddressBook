@@ -48,11 +48,15 @@ module.exports.createOne = async ctt => {
     address: address,
     uid: uid
   }
-  // console.log(contact1)
+  console.log(contact1)
   try {
     const result = await Contact1.create(contact1)
+    // console.log('result', result)
     if (result) {
       ctt.status = 200
+      ctt.body = result
+    } else {
+      ctt.status = 400
       ctt.body = result
     }
   } catch (e) {
