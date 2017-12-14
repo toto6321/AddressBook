@@ -23,5 +23,5 @@ apiRouter.delete('/api/v1/user/:uid', userController.deleteOne)
 
 apiRouter.post('/api/v1/user/login', userController.login)
 
-apiRouter.get('/api/va1/:uid/contacts', contactController.getAllContactsByUserId)
+apiRouter.get('/api/v1/:uid/contacts', contactController.getAllContactsByUserId)
 module.exports = apiRouter

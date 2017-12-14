@@ -100,15 +100,18 @@ module.exports.getHome = async ctt => {
 	'use strict'
 	const {uid} = ctt.params
 	const url = reqOption.url + `/user/${uid}`
-	// console.log(requestOption.url)
+	console.log(reqOption.url)
 	try {
 		const userRes = await axios.get(url)
-		const addressRes = await axios.get(reqOption.url)
-		if (userRes) {
-			ctt.status = parseInt(userRes.status)
+		const contactRes = await axios.get(reqOption.url + `/${uid}/contacts`)
+		if (userRes && contactRes) {
+			// ctt.status = parseInt(userRes.status)
 			const user = userRes.data[0]
+			const contacts = contactRes.data
+			console.log('contacts', contacts)
 			// console.log('user:', user)
-			await ctt.render('home', user)
+			// await ctt.render('home', user)
+			await ctt.render('contact-lists', {contacts: contacts})
 		} else {
 			ctt.status = 400
 		}

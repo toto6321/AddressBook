@@ -102,9 +102,9 @@ module.exports.getAllContactsByUserId = async (ctt) => {
 	"use strict";
 	const {uid} = ctt.params
 	try {
-		const result = Contact1.find({uid: parseInt(uid)})
-
+		const result = await Contact1.find({uid: parseInt(uid)})
 		ctt.status = 200
+		ctt.body = result
 	}
 	catch
 		(e) {
